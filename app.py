@@ -170,5 +170,10 @@ if prompt:
             # Add a blinking cursor to simulate typing
             message_placeholder.markdown(full_response + "▌")
         message_placeholder.markdown(full_response)
+        with st.expander('Response Object'):
+            st.write(assistant_response)
+        # Display source text
+        with st.expander('Source Text'):
+            st.write(assistant_response.get_formatted_sources())
     # Add assistant response to chat history
     st.session_state.messages.append({"role": "assistant", "content": full_response})
